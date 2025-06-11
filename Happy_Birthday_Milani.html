@@ -1,0 +1,95 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You, Always</title>
+  <style>
+    body {
+      background: url('image/IMG_4490.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem;
+    }
+    .message {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 1rem;
+      border-radius: 10px;
+      max-width: 500px;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .visible {
+      opacity: 1;
+    }
+    button {
+      background-color: #ff69b4;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+    .ticket {
+      display: none;
+      margin-top: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    .ticket img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="message" id="msg1">Sometimes we don’t see eye to eye… but my heart is always in the same place — with you.</div>
+  <div class="message" id="msg2">Even in the quiet moments or silly arguments, I hope you know… you’re still my favorite person.</div>
+  <div class="message" id="msg3">So I thought I’d remind you, in my own way, that you mean the world to me.</div>
+  <div class="message" id="msg4">🎁 Click below for a little surprise…</div>
+
+  <button id="nextBtn">Next</button>
+
+  <div class="ticket" id="ticketReveal">
+    <p><strong>I got us tickets. Let’s make a new memory together. 🎫💖</strong></p>
+    <img src="image/IMG_7256.jpeg" alt="Concert Ticket" />
+  </div>
+
+  <script>
+    const messages = [
+      document.getElementById('msg1'),
+      document.getElementById('msg2'),
+      document.getElementById('msg3'),
+      document.getElementById('msg4')
+    ];
+    const ticket = document.getElementById('ticketReveal');
+    const btn = document.getElementById('nextBtn');
+    let index = 0;
+
+    function showNextMessage() {
+      if (index < messages.length) {
+        messages[index].classList.add('visible');
+        index++;
+      } else {
+        btn.style.display = 'none';
+        ticket.style.display = 'block';
+      }
+    }
+
+    btn.addEventListener('click', showNextMessage);
+    showNextMessage();
+  </script>
+</body>
+</html>
